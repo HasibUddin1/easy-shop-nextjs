@@ -1,5 +1,8 @@
+'use client'
+
 import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import NavLink from "./NavLink";
+import ThemeSwitcher from "@/providers/ThemeSwitcher";
 
 
 
@@ -24,7 +27,7 @@ const Navbar = () => {
                                 exact={navItem.path == '/'}
                                 className='px-2 py-1 rounded'
                                 href={navItem.path}
-                                activeClassName='bg-gray-500'
+                                activeClassName='bg-gray-300'
                             >{navItem.title}</NavLink>
                         </li>)
                     }
@@ -65,6 +68,9 @@ const Navbar = () => {
                         <li><a>Logout</a></li>
                     </ul>
                 </div>
+            </div>
+            <div>
+                <ThemeSwitcher />
             </div>
         </div>
     );
