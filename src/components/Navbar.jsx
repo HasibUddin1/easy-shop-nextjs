@@ -3,6 +3,8 @@
 import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import NavLink from "./NavLink";
 import ThemeSwitcher from "@/providers/ThemeSwitcher";
+import { AiOutlineMenu } from "react-icons/ai";
+import { useState } from "react";
 
 
 
@@ -12,13 +14,15 @@ const Navbar = () => {
 
     const navData = user ? afterLoginNavData : beforeLoginNavData
 
+    const [navToggler, setNavToggler] = useState(false)
+
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl">Easy Shop</a>
             </div>
             <div className="relative">
-                <ul className="flex gap-2 items-center absolute right-0">
+                <ul className='lg:flex gap-2 items-center absolute right-0'>
                     {
                         navData.map(navItem => <li
                             key={navItem.path}
