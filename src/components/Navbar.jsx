@@ -1,11 +1,34 @@
-import Image from "next/image";
+import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
+import NavLink from "./NavLink";
+
 
 
 const Navbar = () => {
+
+    const user = null
+
+    const navData = user ? afterLoginNavData : beforeLoginNavData
+
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+            </div>
+            <div>
+                <ul className="flex gap-2">
+                    {
+                        navData.map(navItem => <li
+                            key={navItem.path}
+                        >
+                            <NavLink
+                                exact={navItem.path == '/'}
+                                className='px-2 py-1 rounded'
+                                href={navItem.path}
+                                activeClassName='bg-gray-500'
+                            >{navItem.title}</NavLink>
+                        </li>)
+                    }
+                </ul>
             </div>
             <div className="flex-none">
                 <div className="dropdown dropdown-end">
@@ -28,7 +51,7 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full bg-gray-600">
-                            
+
                         </div>
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">

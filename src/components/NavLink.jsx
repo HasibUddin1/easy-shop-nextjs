@@ -15,7 +15,7 @@ const NavLink = ({children, href, exact = false, activeClassName, ...props}) => 
 
     return (
         <Link href={href} {...props}>
-            
+            {children}
         </Link>
     );
 };
