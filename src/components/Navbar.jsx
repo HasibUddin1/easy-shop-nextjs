@@ -31,6 +31,9 @@ const Navbar = () => {
                             >{navItem.title}</NavLink>
                         </li>)
                     }
+                    <li>
+                        <ThemeSwitcher />
+                    </li>
                 </ul>
             </div>
             <div className="flex-none">
@@ -68,9 +71,6 @@ const Navbar = () => {
                         <li><a>Logout</a></li>
                     </ul>
                 </div>
-            </div>
-            <div>
-                <ThemeSwitcher />
             </div>
         </div>
     );
