@@ -21,12 +21,12 @@ const ThemeSwitcher = () => {
 
     return (
         <div>
-            <div className=''>
+            <div>
                 {
                     theme === 'dark' ?
-                        <button onClick={() => setTheme('light')} ><BsSun></BsSun></button> :
+                        <button onClick={() => setTheme('light')} ><BsSun className='text-4xl'></BsSun></button> :
                         <button onClick={() => setTheme('dark')}>
-                            <MdDarkMode></MdDarkMode>
+                            <MdDarkMode className='text-4xl'></MdDarkMode>
                         </button>
                 }
             </div>

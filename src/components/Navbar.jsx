@@ -17,8 +17,8 @@ const Navbar = () => {
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
             </div>
-            <div>
-                <ul className="flex gap-2">
+            <div className="relative">
+                <ul className="flex gap-2 items-center absolute right-0">
                     {
                         navData.map(navItem => <li
                             key={navItem.path}
@@ -27,7 +27,7 @@ const Navbar = () => {
                                 exact={navItem.path == '/'}
                                 className='px-2 py-1 rounded'
                                 href={navItem.path}
-                                activeClassName='bg-gray-300'
+                                activeClassName='bg-gray-300 text-slate-900'
                             >{navItem.title}</NavLink>
                         </li>)
                     }
