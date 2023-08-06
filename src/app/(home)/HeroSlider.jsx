@@ -3,10 +3,15 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import mainSlider from "@/data/mainSlider";
+
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import "swiper/css/bundle";
-import SingleHeroSlider from "./SingleHeroSlider";
+import bannerImage1 from '../../assets/shopping-banner-image.jpg'
+import bannerImage2 from '../../assets/shopping-banner-image-2.jpg'
+import bannerImage3 from '../../assets/shopping-banner-image-3.jpg'
+import bannerImage4 from '../../assets/shopping-banner-image-4.jpg'
+import Image from "next/image";
+
 
 const HeroSlider = () => {
     return (
@@ -19,11 +24,18 @@ const HeroSlider = () => {
                 autoplay
                 modules={[Navigation, EffectFade, Autoplay]}
             >
-                {mainSlider.map((slider) => (
-                    <SwiperSlide key={slider.id}>
-                        <SingleHeroSlider slider={slider} />
-                    </SwiperSlide>
-                ))}
+                <SwiperSlide>
+                    <Image src={bannerImage1} width="100%" height="100%" alt="Error Loading Image" ></Image>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={bannerImage2} width="100%" height="100%" alt="Error Loading Image" ></Image>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={bannerImage3} width="100%" height="100%" alt="Error Loading Image" ></Image>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={bannerImage4} width="100%" height="100%" alt="Error Loading Image" ></Image>
+                </SwiperSlide>
             </Swiper>
         </section>
     );
