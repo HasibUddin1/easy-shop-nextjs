@@ -3,7 +3,6 @@
 import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import NavLink from "./NavLink";
 import ThemeSwitcher from "@/providers/ThemeSwitcher";
-import { AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
 
 
@@ -13,8 +12,6 @@ const Navbar = () => {
     const user = null
 
     const navData = user ? afterLoginNavData : beforeLoginNavData
-
-    const [navToggler, setNavToggler] = useState(false)
 
     return (
         <div className="navbar bg-base-100">
