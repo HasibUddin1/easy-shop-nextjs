@@ -3,6 +3,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import ThemeProviders from '@/providers/ThemeProviders'
+import Providers from '@/providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,15 +17,17 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light" className='transition-all'>
 
       <body className={inter.className}>
-        <ThemeProviders>
-          <div>
-            <Navbar></Navbar>
-          </div>
-          {children}
-          <div>
-            <Footer></Footer>
-          </div>
-        </ThemeProviders>
+        <Providers>
+          <ThemeProviders>
+            <div>
+              <Navbar></Navbar>
+            </div>
+            {children}
+            <div>
+              <Footer></Footer>
+            </div>
+          </ThemeProviders>
+        </Providers>
       </body>
 
     </html>

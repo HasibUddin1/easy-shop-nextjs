@@ -3,21 +3,21 @@
 import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import NavLink from "./NavLink";
 import ThemeSwitcher from "@/providers/ThemeSwitcher";
+import Image from "next/image";
 import { useContext } from "react";
 import AuthContext from "@/contexts/AuthContext";
-import Image from "next/image";
 
 
 
 const Navbar = () => {
 
-    const user = useContext(AuthContext)
-    console.log(user)
+    const { user, logOut} = useContext(AuthContext)
+    console.log(user, logOut)
 
     const navData = user ? afterLoginNavData : beforeLoginNavData
 
     const handleLogOut = () => {
-        
+
     }
 
     return (
@@ -72,7 +72,7 @@ const Navbar = () => {
                                 width={40}
                                 height={40}
                                 className="h-10 w-10 rounded-full"
-                             />
+                            />
                         </div>
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
