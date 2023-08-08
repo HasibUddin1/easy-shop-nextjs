@@ -15,7 +15,6 @@ const SignupForm = () => {
         handleSubmit,
         formState: { errors },
         getValues,
-        setValue,
     } = useForm();
 
     const { createUser, profileUpdate } = useAuth();

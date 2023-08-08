@@ -4,6 +4,8 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+// TODO: must hide firebase config information
 const firebaseConfig = {
   apiKey: "AIzaSyD0uHN62ORgr8g25bQqsTHyfR-W-1es3Xk",
   authDomain: "easy-shop-js.firebaseapp.com",
