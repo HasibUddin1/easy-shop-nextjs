@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { useEffect, useState } from "react";
 
 
-const AuthProviders = ({children}) => {
+const AuthProviders = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -19,12 +19,11 @@ const AuthProviders = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const updateUserInfo = (user, name, photo) => {
-        setLoading(true)
-        return updateProfile(user, {
-            displayName: name, photoURL: photo
-        })
-    }
+    const profileUpdate = async (updateUser = {}) => {
+        setLoading(true);
+        await updateProfile(auth.currentUser, updateUser);
+        setUser((preUser) => ({ ...preUser, ...updateUser }));
+    };
 
     const googleLogin = () => {
         setLoading(true)
@@ -52,7 +51,7 @@ const AuthProviders = ({children}) => {
         loading,
         createUser,
         signIn,
-        updateUserInfo,
+        profileUpdate,
         googleLogin,
         logOut
     }
