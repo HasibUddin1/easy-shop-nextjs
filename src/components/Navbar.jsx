@@ -4,20 +4,20 @@ import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import NavLink from "./NavLink";
 import ThemeSwitcher from "@/providers/ThemeSwitcher";
 import Image from "next/image";
-import { useContext } from "react";
-import AuthContext from "@/contexts/AuthContext";
+import useAuth from "@/hooks/useAuth";
+import { toast } from "react-hot-toast";
 
 
 
 const Navbar = () => {
 
-    const { user, logOut} = useContext(AuthContext)
-    console.log(user, logOut)
+    const { user, logOut} = useAuth()
 
     const navData = user ? afterLoginNavData : beforeLoginNavData
 
-    const handleLogOut = () => {
-
+    const handleLogOut = async () => {
+        await logOut()
+        toast.success('Successfully logged out!')
     }
 
     return (
