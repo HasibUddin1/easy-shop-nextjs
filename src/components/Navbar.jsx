@@ -7,12 +7,14 @@ import Image from "next/image";
 import useAuth from "@/hooks/useAuth";
 import { toast } from "react-hot-toast";
 import { usePathname, useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 
 
 
 const Navbar = () => {
 
     const { user, logOut } = useAuth()
+    const { theme } = useTheme()
 
     const navData = user ? afterLoginNavData : beforeLoginNavData
 
@@ -42,7 +44,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar bg-base-100">
+        <div className={`navbar ${theme === 'dark' ? 'bg-base-100' : 'bg-slate-300'}`}>
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-xl">Easy Shop</a>
             </div>
