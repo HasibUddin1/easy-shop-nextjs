@@ -54,7 +54,7 @@ const Navbar = () => {
                         >
                             <NavLink
                                 exact={navItem.path == '/'}
-                                className='px-2 py-1 rounded'
+                                className='px-2 py-1 rounded hover:bg-gray-200 ease-in-out duration-200 hover:text-slate-900'
                                 href={navItem.path}
                                 activeClassName='bg-gray-300 text-slate-900'
                             >{navItem.title}</NavLink>

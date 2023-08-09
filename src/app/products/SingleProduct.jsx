@@ -6,7 +6,7 @@ const SingleProduct = ({ product }) => {
 
     return (
         <Link href={`/products/${_id}`}>
-            <div className="card card-compact bg-base-100 shadow-2xl h-full justify-between">
+            <div className="card card-compact bg-base-100 shadow-2xl justify-between">
                 <figure>
                     <Image
                         src={imageUrls[0]}

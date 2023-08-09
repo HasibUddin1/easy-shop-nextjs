@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light" className='transition-all'>
 
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen`}>
         <Providers>
           <ThemeProviders>
             <div>
