@@ -6,18 +6,39 @@ import ThemeSwitcher from "@/providers/ThemeSwitcher";
 import Image from "next/image";
 import useAuth from "@/hooks/useAuth";
 import { toast } from "react-hot-toast";
+import { usePathname, useRouter } from "next/navigation";
 
 
 
 const Navbar = () => {
 
-    const { user, logOut} = useAuth()
+    const { user, logOut } = useAuth()
 
     const navData = user ? afterLoginNavData : beforeLoginNavData
 
+    const { replace, refresh } = useRouter()
+    const path = usePathname()
+
     const handleLogOut = async () => {
-        await logOut()
-        toast.success('Successfully logged out!')
+        const toastId = toast.loading('Loading...')
+        try {
+            await logOut()
+            const res = await fetch("/api/auth/logout", {
+                method: "POST",
+            });
+            await res.json();
+            if (path.includes("/dashboard") || path.includes("/profile")) {
+                replace(`/login?redirectUrl=${path}`);
+            }
+            toast.dismiss(toastId);
+            toast.success("Successfully logout!");
+            startTransition(() => {
+                refresh();
+            });
+        } catch (error) {
+            toast.error("An Error has Occurred");
+            toast.dismiss(toastId);
+        }
     }
 
     return (
